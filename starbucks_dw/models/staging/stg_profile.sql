@@ -10,7 +10,7 @@ with   transformed_profile as (
             coalesce(gender , 'N/A') as gender,
             age,
             coalesce(income,0) as income,
-            to_date(cast(became_member_on as text), 'YYYYMMDD') as became_member_on,
+            to_date(cast(became_member_on as text), 'YYYYMMDD') as subscribed_date,
             current_timestamp as ingested_at
         from {{ ref('profile') }}
         where age < 118
