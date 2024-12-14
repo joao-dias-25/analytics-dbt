@@ -97,3 +97,46 @@ models:
         data_type: timestamp
         data_tests:
           - not_null
+  - name: stg_profile
+    description: >
+      Information about the profile of clients
+    columns:
+      - name: offer_id
+        description: Unique identifier/Surogate key for each offer.
+        data_type: text
+        data_tests:
+          - not_null
+          - unique
+      - name: reward
+        description: Reward given for completing an offer.
+        data_type: numeric
+        data_tests:
+          - not_null
+      - name: duration
+        description: Time in minutes for the offer to be open.
+        data_type: integer
+        data_tests:
+          - not_null
+      - name: difficulty_rank
+        description: Minimum required spend to complete the offer.
+        data_type: integer
+        data_tests:
+          - not_null
+      - name: offer_type
+        description: Type of offer.
+        data_type: text
+        data_tests:
+          - not_null
+          - accepted_values:
+              values:
+                - bogo
+                - discount
+                - informational
+      - name: channels
+        description: A list of channels through which the offer was received.
+        data_type: text[]
+      - name: ingested_at
+        description: Timestamp when the data was ingested.
+        data_type: timestamp
+        data_tests:
+          - not_null
