@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: customer_segmentation
+    description: customers who are more are more likely to respond to promotional offers
+    columns:
+      - name: age_segment
+        description: age segmentation
+      - name: gender
+        description: gender
+      - name: transaction_status
+        description: transaction status completed, customer transactions which add an offer
+      - name: number_transaction
+        description: number of transaction which add an offer associated
+        data_tests:
+          - not_null
+  - name: channel_effectness
+    description: channel efectness ratio
+    columns:
+      - name: channel
+        description: age segmentation
+      - name: completed
+        description: completed transaction whith offer
+      - name: received
+        description: received transaction whith view offer
+      - name: viewed
+        description: viewed transaction whith view offer
+        name: effect_received
+        description: ratio completed / received
+        name: effect_viewed
+        description: ratio completed / viewed
